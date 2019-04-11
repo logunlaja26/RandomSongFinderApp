@@ -20,4 +20,5 @@ from randomSongApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='index'),
+    path('searchpage/',views.searchFormView,name='seachForm'),
 ]
