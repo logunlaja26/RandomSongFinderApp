@@ -3,10 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>SearchPage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
+    <h1>Search for an album, artist, or song</h1>
     <div class="container">
-      {{form}}
+      <form method="post">
+        {{form}}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </form>
+
     </div>
   </body>
 </html>
