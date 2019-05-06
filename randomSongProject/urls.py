@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='index'),
     path('searchpage/',views.searchFormView,name='seachForm'),
+    path('searchpage/',views.getArtist,name='searchForm'),
 ]
