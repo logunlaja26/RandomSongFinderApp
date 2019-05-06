@@ -16,3 +16,15 @@ def searchFormView(request):
         r = requests.post(url, data=payload)
         print(r.text)
     return render(request,'randomSongApp/searchpage.html',{'form':form})
+
+def getArtist(request):
+    form = searchForm()
+    if request.method == "GET":
+        url = 'https://api.spotify.com/v1/search?q=&type=artist'
+        headers = {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer {access_token}'
+        }
+        response = request.get(url, headers=headers)
+        print(response.text)
+    return render(request,'randomSongApp/searchpage.html',{'form':form})
