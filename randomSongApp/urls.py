@@ -4,6 +4,6 @@ from randomSongApp import views
 
 urlpatterns = [
     path('',views.home,name='home'),
-    path('/searchpage',views.searchFormView,name='searchForm'),
-    path('/searchpage',views.getArtist,name='searchForm'),
+    path('/search',views.searchFormView,name='searchForm'),
+    path('/search/artist',views.getArtist,name='searchForm'),
 ]
