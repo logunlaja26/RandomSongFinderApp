@@ -31,6 +31,7 @@ def getArtist(request):
             'Accept': 'application/json',
             'Authorization': 'Bearer %s' %access_token
         }
-        #print('-- Headers %s ---' %headers)
+        print('-- Headers %s ---' %headers)
         response = requests.get(url, headers=headers)
+        print(response.text)
     return render(request,'randomSongApp/searchpage.html',{'form':searchForm()})
