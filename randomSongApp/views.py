@@ -33,5 +33,11 @@ def getArtist(request):
         }
         print('-- Headers %s ---' %headers)
         response = requests.get(url, headers=headers)
-        print(response.text)
-    return render(request,'randomSongApp/searchpage.html',{'form':searchForm()})
+        results = (response.json()["artists"]["items"])
+        context  = {
+            'results' : results
+        }
+        print(context)
+        #print(results[0]["name"])
+        #print(results[0]["followers"]["total"])
+    return render(request,'randomSongApp/searchpage.html',{'form':searchForm(),'context':context})

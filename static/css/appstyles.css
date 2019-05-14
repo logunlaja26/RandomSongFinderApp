@@ -8,3 +8,7 @@ h1{
   margin-right: auto;
   width: 50%;
 }
+
+.anchor-class {
+  text-align: center;
+}
