@@ -38,6 +38,7 @@ def getArtist(request):
         context  = {
             'artist_name': (results[0]["name"]),
             'artist_followers': (results[0]["followers"]["total"]),
+            'artist_popularity': (results[0]["popularity"])
         }
 
         pprint(results)
