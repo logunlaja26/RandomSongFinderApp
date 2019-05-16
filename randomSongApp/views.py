@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from randomSongApp.forms import searchForm
+from pprint import pprint
 import requests
 
 
@@ -31,13 +32,16 @@ def getArtist(request):
             'Accept': 'application/json',
             'Authorization': 'Bearer %s' %access_token
         }
-        print('-- Headers %s ---' %headers)
+        #print('-- Headers %s ---' %headers)
         response = requests.get(url, headers=headers)
         results = (response.json()["artists"]["items"])
         context  = {
-            'results' : results
+            'artist_name': (results[0]["name"]),
+            'artist_followers': (results[0]["followers"]["total"]),
         }
-        print(context)
+
+        pprint(results)
+        print(type(results))
         #print(results[0]["name"])
         #print(results[0]["followers"]["total"])
     return render(request,'randomSongApp/searchpage.html',{'form':searchForm(),'context':context})
