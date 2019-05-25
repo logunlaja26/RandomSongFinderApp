@@ -10,7 +10,7 @@
   <body>
     <h1>Search for an album, artist, or song</h1>
     <div class="container">
-      <form method="post" action="artist">
+      <form method="post" action="artist" name="select_choice">
         {{form}}
         {% csrf_token %}
         <input type="submit" class="btn btn-primary" value="Submit">
@@ -28,9 +28,7 @@
         <td>{{ context.artist_followers }}</td>
         <td>{{ context.artist_popularity }}</td>
       </tr>
-
     </table>
 
-    </div>
   </body>
 </html>
