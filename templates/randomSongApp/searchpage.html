@@ -10,7 +10,7 @@
   <body>
     <h1>Search for an album, artist, or song</h1>
     <div class="container">
-      <form method="post" action="artist" name="select_choice">
+      <form method="post" action="artist">
         {{form}}
         {% csrf_token %}
         <input type="submit" class="btn btn-primary" value="Submit">

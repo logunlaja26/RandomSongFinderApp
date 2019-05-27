@@ -17,6 +17,7 @@ def searchFormView(request):
     return render(request,'randomSongApp/searchpage.html',{'form':form})
 
 def getArtist(request):
+    print("get artist was called")
     if request.method == "POST":
         auth_url = 'https://accounts.spotify.com/api/token'
         payload = {'grant_type':'client_credentials','client_id': '2f9fe9c1bb0f44fbaa27e0b1addc958d' ,'client_secret': 'dba5b3924f5f4ee2a6b582a0a70ad270'}
@@ -27,7 +28,6 @@ def getArtist(request):
         if not form.is_valid():
             return render(request,'randomSongApp/searchpage.html',{'form': searchForm()})
         url_safe_artist = request.POST["Artist"]
-        #url_safe_artist = request.POST("select_choice")
         url = f'https://api.spotify.com/v1/search?q={url_safe_artist}&type=artist'
         headers = {
             'Accept': 'application/json',
